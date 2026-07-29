@@ -1,0 +1,14 @@
+'use strict';
+
+const path = require('path');
+
+/**
+ * Sequelize CLI expects CommonJS entry points. Everything below is resolved
+ * relative to the backend package root so the CLI can be run from any cwd.
+ */
+module.exports = {
+  config: path.resolve(__dirname, 'src', 'config', 'sequelize.cjs'),
+  'models-path': path.resolve(__dirname, 'src', 'models'),
+  'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations'),
+  'seeders-path': path.resolve(__dirname, 'src', 'database', 'seeders'),
+};
