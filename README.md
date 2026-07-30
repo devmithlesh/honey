@@ -186,6 +186,8 @@ search results.
 
 Detailed guides are added alongside the modules they describe:
 
-- `docs/DATABASE.md` — schema and relationships
-- `docs/API.md` — endpoint reference
-- `docs/DEPLOYMENT.md` — production deployment guide
+- [`docs/API.md`](docs/API.md) — endpoint reference
+- [`docs/SUPABASE.md`](docs/SUPABASE.md) — moving the database to Supabase
+- [`tests/README.md`](tests/README.md) — what each test suite covers
+- `docs/DATABASE.md` — schema and relationships *(not written yet)*
+- `docs/DEPLOYMENT.md` — production deployment guide *(not written yet)*
