@@ -9,7 +9,7 @@ import Rating from '@/components/ui/Rating';
 import WishlistButton from './WishlistButton';
 import { ROUTES } from '@/config/site';
 import { selectIsInCart } from '@/features/cart/cartSlice';
-import { useCart } from '@/lib/hooks';
+import { useCart, useIsHydrated } from '@/lib/hooks';
 import { calculateDiscountPercent, formatCurrency, getEffectivePrice } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 
@@ -21,7 +21,12 @@ import { cn } from '@/lib/utils/cn';
  */
 export default function ProductCard({ product, className, priority = false }) {
   const { add } = useCart();
-  const isInCart = useSelector(selectIsInCart(product.id));
+  const isHydrated = useIsHydrated();
+
+  // The basket is restored from localStorage by an effect, so this label must
+  // stay "Add to basket" until hydration finishes — otherwise the server HTML
+  // and the first client render disagree on the button's text.
+  const isInCart = useSelector(selectIsInCart(product.id)) && isHydrated;
 
   const price = getEffectivePrice(product);
   const hasDiscount = price < Number(product.price);

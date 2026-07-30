@@ -163,18 +163,16 @@ to an inventory ledger that reconciles against `products.stock`.
 
 ## Verification
 
-Both suites run against a live database and a real browser:
+Three suites in [`tests/`](tests/), all against a live stack rather than mocks:
 
 ```bash
-# API — 99 assertions across every route group
-node scratchpad/smoke.mjs
-
-# Storefront — every route rendered and asserted
-node scratchpad/crawl.mjs
-
-# Interactive flows in Chromium
-node scratchpad/browser.mjs
+node tests/api.smoke.mjs        # every API route group, including the rejections
+node tests/routes.crawl.mjs     # every page renders the content it should
+node tests/flows.browser.mjs    # signed-in customer and admin journeys in Chromium
 ```
+
+See [`tests/README.md`](tests/README.md) for what each one covers and how to
+point them at a production build.
 
 ### Known framework behaviour
 
