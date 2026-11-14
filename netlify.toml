@@ -1,0 +1,9 @@
+# Netlify build settings. The Next.js app lives in frontend/, so the build runs
+# from there; Netlify's Next.js runtime is detected automatically.
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
