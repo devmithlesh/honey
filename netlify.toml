@@ -7,3 +7,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Declared explicitly: without it the build only uploaded static files and
+# created no server function, so every page returned Netlify's 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
